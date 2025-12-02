@@ -10,8 +10,8 @@
 
   <style>
     :root {
-      --primary: #8B4513;
-      --accent: #D4A373;
+      --primary: #FFD426;
+      --accent: #ffffff;
       --bg: #f7f3e6;
       --text-dark: #2c2c2c;
       --white: #ffffff;
@@ -29,7 +29,6 @@
 
     body {
       font-family: "Crimson Text", serif;
-      background: url("https://i.imgur.com/sH4ZyW0.jpg");
       background-size: cover;
       background-attachment: fixed;
       color: var(--text-dark);
@@ -54,7 +53,7 @@
 
     /* CABEÇALHO */
     header {
-      background: linear-gradient(180deg, #4e2a07, #b08968);
+      background: linear-gradient(180deg, #fffb14, #75500b);
       color: var(--white);
       padding: 50px 20px;
       text-align: center;
@@ -67,7 +66,6 @@
 
     /* HERO */
     .hero {
-      background: url("https://i.imgur.com/oW0YQhH.png");
       background-size: cover;
       padding: 60px;
       border-radius: 25px;
@@ -97,7 +95,6 @@
     }
 
     .card {
-      background: url("https://i.imgur.com/nZQ3TnG.png");
       background-size: cover;
       padding: 2rem;
       border-radius: 20px;
@@ -125,7 +122,7 @@
     /* BOTÃO */
     .btn {
       padding: 16px 40px;
-      background: linear-gradient(135deg, #8B4513, #C69C72);
+      background: linear-gradient(135deg, #8B4513, #ffef0a);
       color: white;
       border: none;
       border-radius: 50px;
@@ -150,7 +147,6 @@
       opacity: 0;
       transform: translateY(30px);
       transition: 0.5s ease;
-      background: url("https://i.imgur.com/oW0YQhH.png");
       background-size: cover;
       padding: 60px;
       border-radius: 25px;
@@ -200,7 +196,7 @@
     </div>
 
     <div class="card" data-aba="aventuras">
-      <h2>🔥 Aventuras Narradas</h2>
+      <h2>🔥 Aventuras Concluídas</h2>
       <p>Descrição das missões que ocorreram.</p>
     </div>
 
@@ -223,7 +219,6 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Ranking de Aventureiros</title>
 
 <style>
     body {
@@ -287,8 +282,6 @@
 
 </head>
 <body>
-
-<h1>Ranking de Aventureiros</h1>
 
 <!-- BOTÃO C -->
 <div class="rank-btn" onclick="toggleContent('rankC')">🔵 RANK C</div>
@@ -392,23 +385,40 @@
   </section>
 
   <section id="mestres" class="aba">
-    <h1>🛡️ Mestres</h1>
-    <p>Informações dos mestres...</p>
+  <h1>🛡️ Mestres</h1>
+<table class="tabela-epica">
+  <tr>
+    <th>Mestre</th>
+    <th>Nível</th>
+    <th>Sessões Narradas</th>
+  </tr>
+
+  <tr><td>André Agno</td><td class="Nível">2</td><td class="Sessões Narradas">13</td></tr>
+  <tr><td>Weber</td><td class="Nível">2</td><td class="Sessões Narradas">04</td></tr>
+  <tr><td>Vinicius</td><td class="Nível">1</td><td class="Sessões Narradas">02</td></tr>
+  <tr><td>Gabriel</td><td class="Nível">1</td><td class="Sessões Narradas">01</td></tr>
+</table>
   </section>
 
   <section id="aventuras" class="aba">
-    <h1>🔥 Aventuras Narradas</h1>
-    <p>Aqui vão as missões já narradas...</p>
+    <h1>🔥 Aventuras Concluídas</h1>
+    <h2>Horizonte Partido</h2>
+    <h3>Mestre Weber</h3>
+    <br>
+    <h2>Memórias Póstumas</h2>
+    <h3>Mestre André</h3>
+    
   </section>
 
   <section id="links" class="aba">
     <h1>📜 Links Importantes</h1>
-    <p>Links úteis da guilda...</p>
+    <p>🌍Foundry Fixo (Oracle): [em breve...]</p>
+    <a href="https://discord.gg/b6jyAtra" target="_blank">🌐Servidor do Discord</a>
   </section>
 
   <section id="cronicas" class="aba">
     <h1>📖 Crônicas</h1>
-    <p>Crônicas e contos épicos...</p>
+    <p>Em breve...</p>
   </section>
 
   <script>
