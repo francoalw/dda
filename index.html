@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desbravadores da Alvorada</title>
+
+  <!-- Fonte temática -->
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #8B4513;
+      --accent: #D4A373;
+      --bg: #f7f3e6;
+      --text-dark: #2c2c2c;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Crimson Text", serif;
+      background: url("https://i.imgur.com/sH4ZyW0.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--text-dark);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(40px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes magicGlow {
+      0% {box-shadow: 0 0 0px rgba(255,215,160,0.0);}
+      50% {box-shadow: 0 0 25px rgba(255,215,160,0.6);}
+      100% {box-shadow: 0 0 0px rgba(255,215,160,0.0);}
+    }
+
+    /* CABEÇALHO */
+    header {
+      background: linear-gradient(180deg, #4e2a07, #b08968);
+      color: var(--white);
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      border-bottom: 6px solid rgba(0,0,0,0.4);
+      text-shadow: 4px 3px rgba(0,0,0,0.4);
+      animation: slideUp 1.2s ease;
+    }
+
+    /* HERO */
+    .hero {
+      background: url("https://i.imgur.com/oW0YQhH.png");
+      background-size: cover;
+      padding: 60px;
+      border-radius: 25px;
+      max-width: 900px;
+      margin: 40px auto;
+      text-align: center;
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      font-weight: 600;
+      animation: slideUp 1.4s ease;
+    }
+
+    /* CARDS */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+    }
+
+    .cards a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      background: url("https://i.imgur.com/nZQ3TnG.png");
+      background-size: cover;
+      padding: 2rem;
+      border-radius: 20px;
+      width: 260px;
+      text-align: center;
+      border: 2px solid rgba(0,0,0,0.2);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+      animation: slideUp 1.6s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      animation: magicGlow 1.5s infinite;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+      text-shadow: 1px 1px rgba(0,0,0,0.3);
+    }
+
+    /* BOTÃO */
+    .btn {
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #8B4513, #C69C72);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: bold;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      animation: slideUp 1.8s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.12);
+      animation: magicGlow 1.4s infinite;
+    }
+
+    /* --- ABAS (NOVO CSS) --- */
+
+    /* Todas as abas começam fechadas */
+    .aba {
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.5s ease;
+      background: url("https://i.imgur.com/oW0YQhH.png");
+      background-size: cover;
+      padding: 60px;
+      border-radius: 25px;
+      max-width: 900px;
+      margin: 00px auto;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Aba aberta */
+    .aba.ativa {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      header { font-size: 2.2rem; }
+      .hero { padding: 40px 25px; font-size: 1.4rem; }
+      .card { width: 85%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>Desbravadores da Alvorada</header>
+
+  <section class="hero">
+    "Amor por princípio,<br>
+    a ordem por base<br>
+    e o Progresso por fim"<br>
+    — Augusto Comte
+  </section>
+
+  <!-- CARDS QUE ABREM ABAS -->
+  <section class="cards">
+
+    <div class="card" data-aba="ranking">
+      <h2>🏆 Ranking de Aventureiros</h2>
+      <p>Acompanhe o desempenho dos membros da Guilda.</p>
+    </div>
+
+    <div class="card" data-aba="mestres">
+      <h2>🛡️ Mestres</h2>
+      <p>Veja os Mestres em atividade no cenário.</p>
+    </div>
+
+    <div class="card" data-aba="aventuras">
+      <h2>🔥 Aventuras Narradas</h2>
+      <p>Descrição das missões que ocorreram.</p>
+    </div>
+
+    <div class="card" data-aba="links">
+      <h2>📜 Links Importantes</h2>
+      <p>Fique por dentro de tudo o que a guilda produz.</p>
+    </div>
+
+    <div class="card" data-aba="cronicas">
+      <h2>📖 Crônicas</h2>
+      <p>Contos sobre as vivências dos aventureiros.</p>
+    </div>
+
+  </section>
+
+  <!-- ABAS DESTINO -->
+  <section id="ranking" class="aba">
+    <h1>🏆 Ranking de Aventureiros</h1>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Ranking de Aventureiros</title>
+
+<style>
+    body {
+        background: #1a1a1a;
+        color: white;
+        font-family: "Georgia", serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px gold;
+    }
+
+    .rank-btn {
+        width: 300px;
+        margin: 10px auto;
+        padding: 12px;
+        background: linear-gradient(#3b2f13, #8b6f27);
+        color: white;
+        border: 2px solid gold;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .rank-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px gold;
+    }
+
+    .content {
+        display: none;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid gold;
+        border-radius: 10px;
+        width: 450px;
+        margin: 10px auto 25px;
+        padding: 15px;
+        text-align: left;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .tituloRank {
+        padding-bottom: 5px;
+        border-bottom: 1px solid gold;
+        margin-bottom: 10px;
+        font-size: 22px;
+        text-align: center;
+        color: gold;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Ranking de Aventureiros</h1>
+
+<!-- BOTÃO C -->
+<div class="rank-btn" onclick="toggleContent('rankC')">🔵 RANK C</div>
+<div id="rankC" class="content">
+<style>
+  .tabela-epica {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid gold;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .tabela-epica th {
+    background: linear-gradient(#3b2f13, #8b6f27);
+    color: gold;
+    padding: 12px;
+    font-size: 22px;
+    text-shadow: 0 0 8px gold;
+    border-bottom: 2px solid gold;
+  }
+
+  .tabela-epica td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .tabela-epica tr:hover {
+    background: rgba(255,255,255,0.12);
+    transition: 0.2s;
+  }
+
+  .nivel {
+    color: #00ffea;
+    font-weight: bold;
+  }
+
+  .xp {
+    color: gold;
+    font-weight: bold;
+  }
+</style>
+
+<table class="tabela-epica">
+  <tr>
+    <th>Nome</th>
+    <th>Nível</th>
+    <th>XP</th>
+  </tr>
+
+  <tr><td>Lasti o Vermelho</td><td class="nivel">6</td><td class="xp">680</td></tr>
+  <tr><td>Victor</td><td class="nivel">6</td><td class="xp">651</td></tr>
+  <tr><td>Ras Akin</td><td class="nivel">6</td><td class="xp">441</td></tr>
+  <tr><td>Holos</td><td class="nivel">5</td><td class="xp">970</td></tr>
+  <tr><td>Gauboudor</td><td class="nivel">5</td><td class="xp">897</td></tr>
+  <tr><td>Gras</td><td class="nivel">5</td><td class="xp">737</td></tr>
+  <tr><td>Guerra</td><td class="nivel">5</td><td class="xp">709</td></tr>
+  <tr><td>Jaspe</td><td class="nivel">5</td><td class="xp">445</td></tr>
+  <tr><td>Durotan</td><td class="nivel">4</td><td class="xp">368</td></tr>
+  <tr><td>Bellanora</td><td class="nivel">4</td><td class="xp">299</td></tr>
+  <tr><td>Fisti o Azul</td><td class="nivel">4</td><td class="xp">161</td></tr>
+</table>
+
+</div>
+
+<!-- BOTÃO D -->
+<div class="rank-btn" onclick="toggleContent('rankD')">🟢 RANK D</div>
+<div id="rankD" class="content">
+<table class="tabela-epica">
+  <tr>
+    <th>Nome</th>
+    <th>Nível</th>
+    <th>XP</th>
+  </tr>
+
+  <tr><td>Schmied</td><td class="nivel">3</td><td class="xp">005</td></tr>
+  <tr><td>Gofo</td><td class="nivel">2</td><td class="xp">596</td></tr>
+  <tr><td>Tiktik</td><td class="nivel">2</td><td class="xp">590</td></tr>
+  <tr><td>Riacho</td><td class="nivel">2</td><td class="xp">372</td></tr>
+  <tr><td>Rhaast</td><td class="nivel">2</td><td class="xp">319</td></tr>
+  <tr><td>Pedro</td><td class="nivel">1</td><td class="xp">860</td></tr>
+  <tr><td>Mandi</td><td class="nivel">1</td><td class="xp">420</td></tr>
+</table>
+
+</div>
+
+<script>
+    function toggleContent(id) {
+        const div = document.getElementById(id);
+        div.style.display = (div.style.display === "block") ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
+
+  </section>
+
+  <section id="mestres" class="aba">
+    <h1>🛡️ Mestres</h1>
+    <p>Informações dos mestres...</p>
+  </section>
+
+  <section id="aventuras" class="aba">
+    <h1>🔥 Aventuras Narradas</h1>
+    <p>Aqui vão as missões já narradas...</p>
+  </section>
+
+  <section id="links" class="aba">
+    <h1>📜 Links Importantes</h1>
+    <p>Links úteis da guilda...</p>
+  </section>
+
+  <section id="cronicas" class="aba">
+    <h1>📖 Crônicas</h1>
+    <p>Crônicas e contos épicos...</p>
+  </section>
+
+  <script>
+    // Abre a aba correta ao clicar no card
+    const cards = document.querySelectorAll(".card");
+    const abas = document.querySelectorAll(".aba");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const alvo = card.getAttribute("data-aba");
+
+        // Fecha todas
+        abas.forEach(a => a.classList.remove("ativa"));
+
+        // Abre somente a clicada
+        document.getElementById(alvo).classList.add("ativa");
+
+        // Scroll suave até a aba
+        document.getElementById(alvo).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Botão troll
+    const botao = document.getElementById("botao");
+    botao.addEventListener("click", () => {
+      botao.style.background =
+        botao.style.background === "green"
+          ? "linear-gradient(135deg, #8B4513, #C69C72)"
+          : "green";
+    });
+  </script>
+
+</body>
+</html>
