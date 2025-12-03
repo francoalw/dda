@@ -534,21 +534,82 @@
  <section id="galeria" class="aba">
   <h1>🎨 Galeria</h1>
 
-  <div class="galeria-grid">
-    <img src="artedebs1.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs2.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs3.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs4.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs5.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs6.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs7.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs8.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs9.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs10.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs11.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs12.PNG" class="thumb" onclick="abrirImagem(this.src)">
-    <img src="artedebs13.PNG" class="thumb" onclick="abrirImagem(this.src)">
-  </div>
+  Por que essa alteração de nomes em contraste com a raça?
+
+<style>
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.thumb {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo do modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+.modal img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+}
+.modal:target {
+  display: block;
+}
+</style>
+
+<div class="galeria-grid">
+  <img src="artedebs1.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs2.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs3.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs4.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs5.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs6.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs7.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs8.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs9.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs10.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs11.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs12.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <img src="artedebs13.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  <!-- ... -->
+</div>
+
+<!-- Modal -->
+<div id="imagemModal" class="modal" onclick="fecharImagem()">
+  <img id="imagemAmpliada">
+</div>
+
+<script>
+function abrirImagem(src) {
+  document.getElementById("imagemAmpliada").src = src;
+  document.getElementById("imagemModal").style.display = "block";
+}
+
+function fecharImagem() {
+  document.getElementById("imagemModal").style.display = "none";
+}
+</script>
+
+  
+  
 
   <!-- Modal de imagem -->
   <div id="modal-img" class="modal" onclick="this.style.display='none'">
@@ -604,12 +665,28 @@
     <div class="card" data-aba="pontoazul">
       <h2>O que é um Ponto Azul numa Floresta? <h4>(Rank D)</h4></h2>
     </div>
+    <div class="card" data-aba="paladinoimovel">
+      <h2>O Paladino Imóvel <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="pessimopescado">
+      <h2>Péssimo Pescado <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="somelliertrap">
+      <h2>Somellier de Armadilhas <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="infestblue">
+      <h2>Infestação Azul <h4>(Rank C)</h4></h2>
+    </div>
+    <div class="card" data-aba="matemobichopapao">
+      <h2>Matem o Bicho Papão<h4>(Rank D)</h4></h2>
+    </div>
   </section>
 
   <!-- ABA DA ONE-SHOT COMPLETA -->
   <section id="centopeias" class="aba">
   <h1>Redução da População de Centopeias</h1>
-  <h3>Mestre Vinicius (15/11/4721)</h3>
+  <h2>15/11/4721</h2>
+  <h3>Mestre Vinicius</h3>
   <p>PJs: Chacal and Oicluw</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
     Os aventureiros foram para uma missão feita pelo Sr. Norab com o objetivo de reduzir uma certa quantidade de pragas 
@@ -624,7 +701,8 @@
 
   <section id="perseguicaoidosa" class="aba">
   <h1>Perseguição de Idosa</h1>
-  <h3>Mestre André (17/11/4721)</h3>
+  <h2>17/11/4721</h2>
+  <h3>Mestre André</h3>
   <p>PJs: Chacal, Oicluw, Schmied</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
     Os desbravadores foram até a casa da Dona Benta para conseguir informações do caso, la Schmied o tal "esquisito" dando inicio a uma perseguição que se estendeu ate que Oicluw convenceu o stalker de que eles somente queriam conversar e que eram da guilda. O stalker se revelou Perito o Investigato auto proclamado melhor investigador de Otari, ele da informações ao grupo dizendo que na realidade Dona Benta estaria alimentando um demonio de Arrazarvore em seu porão. O grupo então foi ao porão da casa de Dona Benta, Chacal a enganou e entraram com tranquilidade. Ao descer se depararam com um Rato Gigante e um Enxame de ratos, Dona Benta acreditava que aqueles ratos eram caes. Os desbravadores começaram um combate com os ratos, Dona Benta chamou seu cão de guarda para atacarem os aventureiros acreditando que eles estavam batendo em seus caezinhos(ratos). A cena encerrou com a morte do rato e do enxame, a velha e seu cachorro saíram para as ruas dizendo que os desbravadores teriam matado seus caezinhos(ratos), pelo historico de caduca ninguem acreditou nela. Acontece que a velha tinha um pessimo problema de vista e nao conseguia diferenciar os ratos dos caes. Chacal localizou o oculos da velha, estava com Trobbish um goblin alquimista, Chacal com ajuda de Schmied enganaram o goblin que entregou de bom grado os oculos de Dona Benta. A missão foi concluida, o stalker nao mais investigaria a casa de Dona Benta, apesar de nao conseguirem a recompensa.
@@ -633,7 +711,8 @@
 
   <section id="furtoemexcesso" class="aba">
   <h1>Furto em Excesso</h1>
-  <h3>Mestre Vinicius (19/11/4721)</h3>
+  <h2>19/11/4721</h2>
+  <h3>Mestre Vinicius</h3>
   <p>PJs: Dra'ak, Durotan e Schmied</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
     Os aventureiros iniciantes souberam que estava havendo um crescimento recorrente de assaltos nas ruas de Otari maior do que o comum, a Guarnição de Otari não conseguia identificar o inimigo pois agiam apenas de noite, Smith e Dra'ak fizeram um trabalho de investigação pela cidade reunindo pistas para identificar a causa, com as dicas e pistas necessárias usaram a criança da guilda como isca e então preparam uma armadilha, durante a noite houve um combate com dois Tengus espreitadores que estavam por trás dos roubos, Durotan chegou no final do combate para ajudar os colegas aventureiros e então mobilizaram os criminosos e os levaram para a Guarnição.
@@ -642,7 +721,8 @@
   
   <section id="controledeferas" class="aba">
   <h1>Controle de Feras</h1>
-  <h3>Mestre Julio (20/11/4721)</h3>
+  <h2>20/11/4721</h2>
+  <h3>Mestre Julio</h3>
   <p>PJs: Chacal, Durotan e Perito</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
     Jake Mc'Axe, o lenhador, contratou os aventureiros em nome dos lenhadores que estavam tendo problemas com lobos selvagens atacando eles durante o trabalho. Os lobos estavam com muitos sinais de fome e ferimentos. Os aventureiros conseguiram lidar com eles sem problemas e perceberam um desequilíbrio na fauna local, provavelmente causada por uma criatura não natural inserida no meio.
@@ -651,7 +731,8 @@
 
   <section id="glandulasdelagartoschocantes" class="aba">
   <h1>Glândulas de Lagartos Chocantes</h1>
-  <h3>Mestre Julio (21/11/4721)</h3>
+  <h2>21/11/4721</h2>
+  <h3>Mestre Julio</h3>
   <p>PJs: Durotan, Garboudor, Schmied</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
   Morblint contratou os herós para capturarem um ou mais lagartos chocantes ou obter suas glândulas, para que ele possa estudar suas propriedades elétricas. O grupo conseguiu levar 2 lagartos chocantes para o mago
@@ -660,16 +741,18 @@
 
   <section id="sumiçosenhoritas" class="aba">
   <h1>O Sumiço das Senhoritas Paps, Peps, Pips e Pops</h1>
-  <h3>Mestre André (27/11/4721)</h3>
+  <h2>27/11/4721</h2>
+  <h3>Mestre André</h3>
   <p>PJs: Chacal, Durotan e Jaspe</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
   A sessão começou com os Dbvs indo à casa de Katila Kitty. Sem encontrá-la, falaram com sua filha Karina e o mordomo Dodinban para entender o sumiço das coleiras e dos cães. Investigando a área, o grupo seguiu um rastro pelos telhados até encontrar as coleiras — junto de uma criatura aberrante chamada Estrangulador, que atacou ao perceber que mexeriam em seus achados. Após um combate encerrado pelo golpe de Durotan, os Dbvs recuperaram as coleiras e retornaram para Katila, que se importava mais com o valor delas do que com os cães. Chacal ainda tentou ensinar à criança que nem tudo é dinheiro. Assim a missão se conclui.
   </p>
   </section>
 
-  <section id="sumiçosenhoritas" class="aba">
+  <section id="pontoazul" class="aba">
   <h1>O que é um Ponto Azul numa Floresta?</h1>
-  <h3>Mestre André (30/11/4721)</h3>
+  <h2>30/11/4721</h2>
+  <h3>Mestre André</h3>
   <p>PJs: Bellanora, Chacal, Robert Sap e Sam</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
   A sessão começa com Bellanora e Robert, onde Fisti lhes entrega a missão. Eles coletaram água do mar e de um lago e, guiados por ela, foram até a roda gigante para encontrar Klor­te. Após receberem as informações, seguiram para a floresta, indo aos pontos azuis marcados. Lá reencontraram Chacal e Sam, que já tinham iniciado a procura e estavam cozinhando.
@@ -677,6 +760,77 @@
   </p>
   </section>
 
+  <section id="paladinoimovel" class="aba">
+  <h1>O Paladino Imóvel</h1>
+  <h2>01/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Na sessão, Fisti e Schmied investigaram pegadas e sinais de uma criatura monstruosa, encontrando marcas de dois dedos e mãos enormes. Descobriram uma estátua profanada que lembrava um paladino; após limpá-la, continuaram a busca e deram de cara com um ogro enorme, deformado e cheio de feridas.
+  Ao tentar atacá-lo, o gigante acordou, mas foi temporariamente enganado pelos personagens que o instruíram a destruir a estátua do paladino. Durante o conflito, Fisti e Schmied lutaram para controlar a situação: ataques físicos e magias foram usados, enquanto o ogro respondia de forma confusa e violenta devido a feridas rúnicas pulsantes.
+  No clímax da batalha, Schmied utilizou sua astúcia e poderes para imobilizar o ogro, e, com um ataque final combinando estratégia e magia, os heróis conseguiram destruir a criatura, garantindo a sobrevivência e completando o objetivo da sessão.
+  </p>
+  </section>
+
+  <section id="pessimopescado" class="aba">
+  <h1>Péssimo Pescado</h1>
+  <h2>01/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Jaspe, Sam e Sap</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A sessão deu início com Sam cozinhando alguns peixes, Sap conversando com um verme e logo depois comendo ele, e Bellanora e Jaspe na biblioteca se encontrando. Ambas as clérigas conversam entre si e nesse momento Fisti chega falando da missão. As duas saem e se encontram com Sap e Sam, ambos estão envolvidos com uma briga com um Orc padeiro mas logo é resolvido. O grupo então se prepara comprando alguns recursos e preparando uma isca com um alquímico que faria uma criatura parar em cima das águas. Após conseguir um barco foram até o local indicado pelos pescadores, chegando lá identificaram que ali seria o local em que a criatura estaria, após ver alguns rastros Sam colocou a isca na água e no mesmo momento uma criatura é lançada a ficando desprevenida para um golpe, nesse momento outras criaturas surgem, estas se chamam Garrecife, após uma série de magias e habilidades os Garrecifes são derrotados e levados para cozimento e a análise de Fisti.
+  </p>
+  </section>
+
+  <section id="somelliertrap" class="aba">
+  <h1>Somellier de Armadilhas</h1>
+  <h2>02/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Jaspe e Sam</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A sessão deu início com os aventureiros indo para a casa aonde aconteceria os testes de armadilhas, antes de entrarem dentro da casa Sam cai em um TERRÍVEL FOSSO ESCONDIDO, mas rapidamente ele se segura evitando boa parte da queda, depois se levantando e ao passar pela entrada da casa uma PORTA BLOQUEADORA TAL QUAL UMA GUILHOTINA cai em direção ao Sam que com um movimento acrobático escapa da sentença de morte. Sam consegue levantar a porta e assim Sap e Bell entraram na casa, nesse momento Sam foi investigando as janelas da casa e depois de bom tempo de paranoia percebeu que não havia nenhuma armadilha nelas. Jaspe procurou por detalhes de magia e Bell visualizou uma coisa que cria uma tensão terrível naquele lugar… O TERRÍVEL CRIADO MUDO, após uma série de investigação um efeito deste móvel, com um ataque certeiro com uma lança de luz Jaspe quebra o criado mudo… UMA LANÇA EXTREMAMENTE FATAL EM UMA VELOCIDADE SURREAL é disparada na direção de Jaspe que rapidamente usa seu escudo mágico para se defender. Após isso verificando o criado mudo ao colocar a mão na gaveta… UMA AGULHA COM UM VENENO MORTALMENTE LETAL perfura o dedo de Jaspe que começa a sentir os efeitos do veneno, por preparo dos aventureiros eles tinham antidotos que evitaram problemas maiores. Ainda havia 2 salas para investigar, uma estava cheia de pregos e uma caixa NENHUM POUCO SUSPEITA do outro lado, a outra tinha a carcaça de um porco em cima de uma mesa, investigado ali em volta eles sentem um cheiro estranho… FUNGOS GROTESCOS E MONSTRUOSOS EXPLODEM UMA FUMAÇA VENENOSA DE DENTRO DO PORCO causando mal terrível aos desbravadores. E quando tudo ja parecia ruim eles apareceram… OS QUATRO MAIORES KOBOLDS DE GOLARION, OS MAIS PERIGOSOS E MOTIVADOS DE TODOS, surgem de cima do telhado com seus porretes atacando todos, mas por levar 2 clérigas e Sarheinha a prosa devia deter e interromper Sam derruba um dos monstros kobolds, com um golpe rapido e certeiro em direção aos fungos, Jaspe também arremessa um bebê de a cabeça num baú que tinha uma armadilha elétrica transformando o Kobold inconsciente, com outro movimento certeiro Jaspe derruba outro, Bell com somaticamente vence que o Kobold derruba o baú com a armadilha. Então na coragem o porco Joovelheiro abrir o baú e caia em outra armadilha. Jaspe e todos os Kobolds se levantaram, e que se fizeram fazem parte do teste de segurança da Arasp Ap Arcos. Após toda a resolução e testes completos as Kobolds voltam para a comissão do trabalho dos Kobolds e aventuriros voltam para continuar a jornada.
+  </p>
+  </section>
+
+  <section id="infestblue" class="aba">
+  <h1>Infestação Azul</h1>
+  <h2>05/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Chacal, Guerra, Holos e Jaspe</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Os desbravadores se preparam comprando águas bentas em Otari e logo partem onde antes haviam enfrentado os Zumbis do Vazio, no caminho se encontraram com Holos um druida leshy que estava investigando os Akatas ja tinha um tempo, o grupo então munido de diversos recursos entram na cavarna onde estavam os Akatas. Ao chegar lá viram diversos Akatas encasulados em um cristal estranho, apenas um estava fora, o combate se inicia e logo Guerra atira uma flecha que tira a vida da criatura, logo após isso previendo que as criaturas logo sairiam dos casulos Chacal diz a todos que devem se preparar, o bruxo invoca um morto vivo e começa a consumir a mente das criaturas ainda encasuladas, Holos domina o local com suas vinhas, Jaspe se prepara com suas lanças de luz e seu escudo e Guerra assume uma posição de vantagem enquanto marca um dos inimigos. Alguns Akatas saem dos casulos e vao em direção de Jaspe que acaba de parasite-las, no ar druida domina os movimentos das criaturas, e a de cima o goblin mataava os azarados que estavam na linha de tiro. O combate continuou onde se tornou o pesadelo das aberraçẽos, Jaspe era um alvo imortal que dominava as aberrações e os Akatas para Sareinhe, Holos enterrava as criaturas com sua magalda(A fraqueza delas) e Guerra tirava o descaço em zentoa no centro dos combates, ainda houvera um Akata contra um Zumbi(de longe o melhor dos combates), ambos demonstrando uma ferocidade surreal, com mordidas e agarrões fatais. A luta contra os Akatas acaba com a vitoria dos Desbravadores da Alvorada.  </p>
+  </section>
+
+  <section id="matemobichopapao" class="aba">
+  <h1>Matem o Bicho Papão</h1>
+  <h2>06/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  O grupo chega na mansão e começa a investigar, olhando na cozinha Sapp encontra uma bebida alcoólica estranha com gosto de cereja, Bellanora encontra um colar de dentes de humanoides, depois na sala de estar eles encontram garrafas de vinho envenenadas e um livro com vários símbolos estranhos, é identificado os símbolos de Lamashtu, Zon-Kuthon e do grupo Os Sinistros, um grupo que leva a tortura física e psicológica como um estilo de vida. Riacho logo identifica marcas do lado de fora da casa e suspeita que o bixo papão esteja no sótão. O grupo então vai lá e encontra morcegos vampiros que atacam todos, mas logo Jaspe e Riacho com ataques de lanças e mordidas de crocodilo, acabam com todo o perigo. Nesse momento metade do grupo ia saindo do sótão, Sapp quis ficar para ver de onde saíram os morcegos e nesse momento quebrando a janela, um Bugbear de jaqueta de couro com o símbolo dos Sinistros e um baita machado em mãos chega gritando e ataca Sapp, que graças a seu escudo ele sobrevive vivo, o grupo então se reune no sótão e começa a atacar o bugbear, este busca trucidar Bellanora que estava com seu colar de dentes, ela arremessa o colar para a janela, o Bugbear perde a atenção nesse momento e Jaspe aproveita para perfurar criticamente o peito do Bugbear, Sapp usa de magias para tirar a vitalidade do Bugbear e Abissal(o crocodilo do Riacho) morde os pés dele, a luta se encerra com um golpe certeiro de lança no pescoço do bugbear, que ameaçava tornar-se um perigo iminente. A sessão se encerra com a casa salva de perigos.
+  </section>
+
+  <section id="matemobichopapao" class="aba">
+  <h1>Matem o Bicho Papão</h1>
+  <h2>07/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A Aventura deu início com eles planejando uma forma de vencer o Zumbi Bruto e o Necrofídio (Uma grande serpente de ossos), Jaspe foi pra frente enquanto Arauto das Arapucas instalava uma armadilha no caminho do Necrofídio. Jaspe iniciou o combate atacando o Zumbi com uma magia que o chicoteava com um impulso de vitalidade, Bell empunhou sua lança e a encantou com magia, Riacho e Abissal avançam e atacam sincronizadamente, Sapp usa de magia para tornar Abissal em uma ameaça contra qualquer morto vivo, emanando vitalidade de suas presas.
+  O Zumbi atacou com brutalidade Jaspe mas com o escudo bem posicionado ela mitigou boa parte do dano, o Necrofídio desviava perfeitamente da armadilha e começava uma dança macabra para atordoar o grupo, o combate continuou até que como um terrível predador, Abissal mordeu a perna do Zumbi o levando ao chão e afastando toda treva que comandava essa pobre criatura, o Necrofídio atava Bellanora que sofria com as mordidas fatais da Serpente de Ossos, do outro lado do campo de batalha Sapp utilizava lanças espirituais no Necrofídio, nos movimentos dela evitava a maior parte dos golpes. Até que a lança de Sapp finalmente destrói a criatura. Enquanto Jaspe curava e Robertinho (O encosto de Sapp) atormentava a mente de Bell, Riacho viu uma rapieira que chamava sua atenção, ao encostar na rapieira todo grupo é puxado para uma visão.
+  Um goblin poderoso chamado Tempo havia amaldiçoado um Bhargest no passado que tinha atacado Olymgard, e todos os corpos das vítimas que fazia emanava visões que ajudavam heróis a vencê-lo. Então os pjs são puxados para visões, uma delas de um grupo de aventureiros enfrentando um colossal gigante, uma outra visão de prisioneiros que foram torturados por um bruxo tentando fugir ou se vingar do tal bruxo devoto de Zon Kuthon, por fim a visão é de um Bhargest invadindo Olymgard e sendo impedido pelos goblins. A visão termina, possíveis informações úteis para os desbravadores lidarem com os problemas que virão.
+  </section>
+
+  <section id="matemobichopapao" class="aba">
+  <h1>Matem o Bicho Papão</h1>
+  <h2>07/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A Aventura deu início com eles planejando uma forma de vencer o Zumbi Bruto e o Necrofídio (Uma grande serpente de ossos), Jaspe foi pra frente enquanto Arauto das Arapucas instalava uma armadilha no caminho do Necrofídio. Jaspe iniciou o combate atacando o Zumbi com uma magia que o chicoteava com um impulso de vitalidade, Bell empunhou sua lança e a encantou com magia, Riacho e Abissal avançam e atacam sincronizadamente, Sapp usa de magia para tornar Abissal em uma ameaça contra qualquer morto vivo, emanando vitalidade de suas presas.
+  O Zumbi atacou com brutalidade Jaspe mas com o escudo bem posicionado ela mitigou boa parte do dano, o Necrofídio desviava perfeitamente da armadilha e começava uma dança macabra para atordoar o grupo, o combate continuou até que como um terrível predador, Abissal mordeu a perna do Zumbi o levando ao chão e afastando toda treva que comandava essa pobre criatura, o Necrofídio atava Bellanora que sofria com as mordidas fatais da Serpente de Ossos, do outro lado do campo de batalha Sapp utilizava lanças espirituais no Necrofídio, nos movimentos dela evitava a maior parte dos golpes. Até que a lança de Sapp finalmente destrói a criatura. Enquanto Jaspe curava e Robertinho (O encosto de Sapp) atormentava a mente de Bell, Riacho viu uma rapieira que chamava sua atenção, ao encostar na rapieira todo grupo é puxado para uma visão.
+  Um goblin poderoso chamado Tempo havia amaldiçoado um Bhargest no passado que tinha atacado Olymgard, e todos os corpos das vítimas que fazia emanava visões que ajudavam heróis a vencê-lo. Então os pjs são puxados para visões, uma delas de um grupo de aventureiros enfrentando um colossal gigante, uma outra visão de prisioneiros que foram torturados por um bruxo tentando fugir ou se vingar do tal bruxo devoto de Zon Kuthon, por fim a visão é de um Bhargest invadindo Olymgard e sendo impedido pelos goblins. A visão termina, possíveis informações úteis para os desbravadores lidarem com os problemas que virão.
+  </section>
 
   <section id="pjs" class="aba">
   <h1>🧙‍♂️ Personagens</h1>
@@ -829,4 +983,3 @@
 
 </body>
 </html>
-
