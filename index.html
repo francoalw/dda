@@ -15,6 +15,56 @@
       --bg: #f7f3e6;
       --text-dark: #2c2c2c;
       --white: #ffffff;
+
+      /* Miniaturas */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.galeria-grid .thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid gold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.galeria-grid .thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+
+/* Modal de imagem */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-img img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 3px solid gold;
+  border-radius: 15px;
+  box-shadow: 0 0 25px gold;
+}
+    }
+
+    #oneshot h4 {
+   color: white !important;
     }
 
     * {
@@ -173,6 +223,62 @@
       .hero { padding: 40px 25px; font-size: 1.4rem; }
       .card { width: 85%; }
     }
+
+    /* --- PERSONAGENS (PJs) AJUSTADO --- */
+
+.pj-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid gold;
+  padding: 18px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 650px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.pj-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px gold;
+}
+
+.pj-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;      /* corta e centraliza */
+  object-position: center; 
+  border-radius: 10px;
+  border: 3px solid gold;
+}
+
+.pj-info h2 {
+  font-size: 1.6rem;
+  color: gold;
+  margin-bottom: 6px;
+  text-shadow: 0 0 5px rgba(255,255,255,0.6);
+}
+
+.pj-info p {
+  font-size: 1.25rem;
+  margin: 2px 0;
+}
+
+/* Celular: cards em coluna */
+@media (max-width: 600px) {
+  .pj-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pj-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
   </style>
 </head>
 
@@ -191,8 +297,8 @@
   <section class="cards">
 
     <div class="card" data-aba="aventuras">
-      <h2>🔥 Aventuras Concluídas</h2>
-      <p>Descrição das missões que ocorreram.</p>
+      <h2>🔥 Aventuras</h2>
+      <p>Descrição das aventuras que ocorreram.</p>
     </div>
 
     <div class="card" data-aba="cronicas">
@@ -215,6 +321,11 @@
       <p>Veja os Mestres em atividade no cenário.</p>
     </div>
 
+    <div class="card" data-aba="oneshot">
+      <h2>☄️ One–shots </h2>
+      <p>Relatórios sobre as aventuras de uma sessão só.</p>
+    </div>
+
     <div class="card" data-aba="pjs">
       <h2>🧙‍♂️ Personagens</h2>
       <p>Conheça as almas que moldam essa história.</p>
@@ -231,11 +342,11 @@
   <section id="ranking" class="aba">
     <h1>🏆 Ranking de Aventureiros</h1>
     <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
+  <html lang="pt-br">
+  <head>
+  <meta charset="UTF-8">
 
-<style>
+  <style>
     body {
         background: #1a1a1a;
         color: white;
@@ -362,14 +473,14 @@
   <tr><td>Durotan</td><td class="nivel">4</td><td class="xp">548</td></tr>
   <tr><td>Bellanora</td><td class="nivel">4</td><td class="xp">589</td></tr>
   <tr><td>Fisti o Azul</td><td class="nivel">4</td><td class="xp">257</td></tr>
-</table>
+  </table>
 
-</div>
+  </div>
 
-<!-- BOTÃO D -->
-<div class="rank-btn" onclick="toggleContent('rankD')">🟢 RANK D</div>
-<div id="rankD" class="content">
-<table class="tabela-epica">
+  <!-- BOTÃO D -->
+  <div class="rank-btn" onclick="toggleContent('rankD')">🟢 RANK D</div>
+  <div id="rankD" class="content">
+  <table class="tabela-epica">
   <tr>
     <th>Nome</th>
     <th>Nível</th>
@@ -382,38 +493,21 @@
   <tr><td>Riacho</td><td class="nivel">2</td><td class="xp">372</td></tr>
   <tr><td>Rhaast</td><td class="nivel">2</td><td class="xp">319</td></tr>
   <tr><td>Pedro</td><td class="nivel">1</td><td class="xp">960</td></tr>
-  <tr><td>Mandi</td><td class="nivel">1</td><td class="xp">520</td></tr>
-</table>
+  <tr><td>Mand</td><td class="nivel">1</td><td class="xp">520</td></tr>
+  </table>
 
-</div>
+  </div>
 
-<script>
+  <script>
     function toggleContent(id) {
         const div = document.getElementById(id);
         div.style.display = (div.style.display === "block") ? "none" : "block";
     }
-</script>
+  </script>
 
-</body>
-</html>
+  </body>
+  </html>
 
-  </section>
-
-  <section id="mestres" class="aba">
-  <h1>🛡️ Mestres</h1>
-<table class="tabela-epica">
-  <tr>
-    <th>Mestre</th>
-    <th>Nível</th>
-    <th>Sessões Narradas</th>
-  </tr>
-
-  <tr><td>Mestre ADM</td><td class="Nível">ADM</td><td class="Sessões Narradas">––</td></tr>
-  <tr><td>André Agno</td><td class="Nível">2</td><td class="Sessões Narradas">18</td></tr>
-  <tr><td>Weber</td><td class="Nível">2</td><td class="Sessões Narradas">04</td></tr>
-  <tr><td>Vinicius</td><td class="Nível">1</td><td class="Sessões Narradas">04</td></tr>
-  <tr><td>Gabriel</td><td class="Nível">1</td><td class="Sessões Narradas">03</td></tr>
-</table>
   </section>
 
   <section id="aventuras" class="aba">
@@ -427,35 +521,285 @@
     <h2>Memórias Póstumas</h2>
     <h3>Mestre André</h3>
     <br>
-    <h2>Saga do Farol</h2>
+    <h2>Saga de Kotal</h2>
     <h3>Mestre ADM</h3>
     
   </section>
 
   <section id="cronicas" class="aba">
     <h1>📖 Crônicas</h1>
-    <p>Em breve...</p>
+    <h2>Em breve...</h2>
   </section>
+
+ <section id="galeria" class="aba">
+  <h1>🎨 Galeria</h1>
+
+  <div class="galeria-grid">
+    <img src="artedebs1.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs2.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs3.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs4.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs5.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs6.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs7.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs8.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs9.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs10.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs11.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs12.PNG" class="thumb" onclick="abrirImagem(this.src)">
+    <img src="artedebs13.PNG" class="thumb" onclick="abrirImagem(this.src)">
+  </div>
+
+  <!-- Modal de imagem -->
+  <div id="modal-img" class="modal" onclick="this.style.display='none'">
+    <img id="modal-conteudo">
+  </div>
+</section>
 
   <section id="links" class="aba">
   <h1>📜 Links Importantes</h1>
   <p>🌍Foundry Fixo (Oracle): [em breve...]</p>
   <a href="https://discord.gg/b6jyAtra" target="_blank">🌐 Servidor do Discord</a><br>
   <a href="https://www.youtube.com/@dragnerush2" target="_blank">🎥 Canal do Mestre Epitácio</a>
-</section>
-
-  <section id="galeria" class="aba">
-    <h1>🎨 Galeria</h1>
-    <h2>Em breve...</h2>
-    <h3>Libera as imagens, Débora!</h3>
-    <h4>😭😭😭</h4>
   </section>
 
-  <section id="Pjs" class="aba">
-    <h1>🧙‍♂️Personagens</h1>
-    <h2>Em breve...</h2>
-    <h3>Preciso reunir as imagens rs</h3>
+  <section id="mestres" class="aba">
+  <h1>🛡️ Mestres</h1>
+  <table class="tabela-epica">
+  <tr>
+    <th>Mestre</th>
+    <th>Nível</th>
+    <th>Sessões Narradas</th>
+  </tr>
+
+  <tr><td>Mestre ADM</td><td class="Nível">ADM</td><td class="Sessões Narradas">––</td></tr>
+  <tr><td>André</td><td class="Nível">2</td><td class="Sessões Narradas">18</td></tr>
+  <tr><td>Weber</td><td class="Nível">2</td><td class="Sessões Narradas">04</td></tr>
+  <tr><td>Vinicius</td><td class="Nível">1</td><td class="Sessões Narradas">04</td></tr>
+  <tr><td>Ariel</td><td class="Nível">1</td><td class="Sessões Narradas">03</td></tr>
+  <tr><td>Julio</td><td class="Nível">1</td><td class="Sessões Narradas">01</td></tr>
+  </table>
   </section>
+
+  <section id="oneshot" class="aba">
+  <h1>☄️ One Shots</h1>
+    <div class="card" data-aba="centopeias">
+      <h2>Redução da População de Centopeias <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="perseguicaoidosa">
+      <h2>Perseguição de Idosa <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="furtoemexcesso">
+      <h2>Furto em Excesso <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="controledeferas">
+      <h2>Controle de Feras <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="glandulasdelagartoschocantes">
+      <h2>Glândulas de Lagartos Chocantes <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="sumiçosenhoritas">
+      <h2>O Sumiço das Senhoritas Paps, Peps, Pips e Pops <h4>(Rank D)</h4></h2>
+    </div>
+    <div class="card" data-aba="pontoazul">
+      <h2>O que é um Ponto Azul numa Floresta? <h4>(Rank D)</h4></h2>
+    </div>
+  </section>
+
+  <!-- ABA DA ONE-SHOT COMPLETA -->
+  <section id="centopeias" class="aba">
+  <h1>Redução da População de Centopeias</h1>
+  <h3>Mestre Vinicius (15/11/4721)</h3>
+  <p>PJs: Chacal and Oicluw</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+    Os aventureiros foram para uma missão feita pelo Sr. Norab com o objetivo de reduzir uma certa quantidade de pragas 
+    que estavam se espalhando pela região.  
+    <br><br>
+    Ao adentrarem uma caverna ao norte de Otari, encontraram uma criação de 
+    <strong>centopeias gigantes</strong> mantidas e alimentadas por um grupo de <strong>kobolds</strong>.  
+    <br><br>
+    Após uma batalha árdua e perigosa, conseguiram derrotar grande parte das criaturas, mas não eliminaram totalmente a ameaça — o que deixou a Guilda em estado de alerta quanto ao risco ainda à solta.
+  </p>
+  </section>
+
+  <section id="perseguicaoidosa" class="aba">
+  <h1>Perseguição de Idosa</h1>
+  <h3>Mestre André (17/11/4721)</h3>
+  <p>PJs: Chacal, Oicluw, Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+    Os desbravadores foram até a casa da Dona Benta para conseguir informações do caso, la Schmied o tal "esquisito" dando inicio a uma perseguição que se estendeu ate que Oicluw convenceu o stalker de que eles somente queriam conversar e que eram da guilda. O stalker se revelou Perito o Investigato auto proclamado melhor investigador de Otari, ele da informações ao grupo dizendo que na realidade Dona Benta estaria alimentando um demonio de Arrazarvore em seu porão. O grupo então foi ao porão da casa de Dona Benta, Chacal a enganou e entraram com tranquilidade. Ao descer se depararam com um Rato Gigante e um Enxame de ratos, Dona Benta acreditava que aqueles ratos eram caes. Os desbravadores começaram um combate com os ratos, Dona Benta chamou seu cão de guarda para atacarem os aventureiros acreditando que eles estavam batendo em seus caezinhos(ratos). A cena encerrou com a morte do rato e do enxame, a velha e seu cachorro saíram para as ruas dizendo que os desbravadores teriam matado seus caezinhos(ratos), pelo historico de caduca ninguem acreditou nela. Acontece que a velha tinha um pessimo problema de vista e nao conseguia diferenciar os ratos dos caes. Chacal localizou o oculos da velha, estava com Trobbish um goblin alquimista, Chacal com ajuda de Schmied enganaram o goblin que entregou de bom grado os oculos de Dona Benta. A missão foi concluida, o stalker nao mais investigaria a casa de Dona Benta, apesar de nao conseguirem a recompensa.
+  </p>
+  </section>
+
+  <section id="furtoemexcesso" class="aba">
+  <h1>Furto em Excesso</h1>
+  <h3>Mestre Vinicius (19/11/4721)</h3>
+  <p>PJs: Dra'ak, Durotan e Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+    Os aventureiros iniciantes souberam que estava havendo um crescimento recorrente de assaltos nas ruas de Otari maior do que o comum, a Guarnição de Otari não conseguia identificar o inimigo pois agiam apenas de noite, Smith e Dra'ak fizeram um trabalho de investigação pela cidade reunindo pistas para identificar a causa, com as dicas e pistas necessárias usaram a criança da guilda como isca e então preparam uma armadilha, durante a noite houve um combate com dois Tengus espreitadores que estavam por trás dos roubos, Durotan chegou no final do combate para ajudar os colegas aventureiros e então mobilizaram os criminosos e os levaram para a Guarnição.
+  </p>
+  </section>
+  
+  <section id="controledeferas" class="aba">
+  <h1>Controle de Feras</h1>
+  <h3>Mestre Julio (20/11/4721)</h3>
+  <p>PJs: Chacal, Durotan e Perito</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+    Jake Mc'Axe, o lenhador, contratou os aventureiros em nome dos lenhadores que estavam tendo problemas com lobos selvagens atacando eles durante o trabalho. Os lobos estavam com muitos sinais de fome e ferimentos. Os aventureiros conseguiram lidar com eles sem problemas e perceberam um desequilíbrio na fauna local, provavelmente causada por uma criatura não natural inserida no meio.
+  </p>
+  </section>
+
+  <section id="glandulasdelagartoschocantes" class="aba">
+  <h1>Glândulas de Lagartos Chocantes</h1>
+  <h3>Mestre Julio (21/11/4721)</h3>
+  <p>PJs: Durotan, Garboudor, Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Morblint contratou os herós para capturarem um ou mais lagartos chocantes ou obter suas glândulas, para que ele possa estudar suas propriedades elétricas. O grupo conseguiu levar 2 lagartos chocantes para o mago
+  </p>
+  </section>
+
+  <section id="sumiçosenhoritas" class="aba">
+  <h1>O Sumiço das Senhoritas Paps, Peps, Pips e Pops</h1>
+  <h3>Mestre André (27/11/4721)</h3>
+  <p>PJs: Chacal, Durotan e Jaspe</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A sessão começou com os Dbvs indo à casa de Katila Kitty. Sem encontrá-la, falaram com sua filha Karina e o mordomo Dodinban para entender o sumiço das coleiras e dos cães. Investigando a área, o grupo seguiu um rastro pelos telhados até encontrar as coleiras — junto de uma criatura aberrante chamada Estrangulador, que atacou ao perceber que mexeriam em seus achados. Após um combate encerrado pelo golpe de Durotan, os Dbvs recuperaram as coleiras e retornaram para Katila, que se importava mais com o valor delas do que com os cães. Chacal ainda tentou ensinar à criança que nem tudo é dinheiro. Assim a missão se conclui.
+  </p>
+  </section>
+
+  <section id="sumiçosenhoritas" class="aba">
+  <h1>O que é um Ponto Azul numa Floresta?</h1>
+  <h3>Mestre André (30/11/4721)</h3>
+  <p>PJs: Bellanora, Chacal, Robert Sap e Sam</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  A sessão começa com Bellanora e Robert, onde Fisti lhes entrega a missão. Eles coletaram água do mar e de um lago e, guiados por ela, foram até a roda gigante para encontrar Klor­te. Após receberem as informações, seguiram para a floresta, indo aos pontos azuis marcados. Lá reencontraram Chacal e Sam, que já tinham iniciado a procura e estavam cozinhando.
+  O grupo seguiu os rastros até uma caverna, onde enfrentaram zumbis estranhos. Ao vencerem, Bellanora avistou uma criatura azulada de olhos amarelos brilhantes se aproximando. Todos tentaram obter informações, mas perceberam que a criatura não avançava ao ver um dos potes de água de Bellanora. Com isso, o grupo retornou para fazer o relatório para Fisti.
+  </p>
+  </section>
+
+
+  <section id="pjs" class="aba">
+  <h1>🧙‍♂️ Personagens</h1>
+  <div class="pj-card">
+    <img src="pjdurotan.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Durotan</h2>
+      <p><strong>Classe:</strong> Guerreiro</p>
+      <p><strong>Jogador:</strong> Lucas</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjgauboudor.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Gauboudor</h2>
+      <p><strong>Classe:</strong> Alquimista</p>
+      <p><strong>Jogador:</strong> Vinicius</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjgofo.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Gofo</h2>
+      <p><strong>Classe:</strong> Feiticeiro</p>
+      <p><strong>Jogador:</strong> Weber</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjgras.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Gras</h2>
+      <p><strong>Classe:</strong> Ladina</p>
+      <p><strong>Jogador:</strong> Isa</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjguerra.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Guerra</h2>
+      <p><strong>Classe:</strong> Guerreiro</p>
+      <p><strong>Jogador:</strong> Ariel</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjjaspe.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Jaspe</h2>
+      <p><strong>Classe:</strong>Clériga</p>
+      <p><strong>Jogador:</strong>Ricardo</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjmand.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Mand</h2>
+      <p><strong>Classe:</strong> Mago</p>
+      <p><strong>Jogador:</strong> Miguel</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjpedro.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Pedro</h2>
+      <p><strong>Classe:</strong> Guerreiro</p>
+      <p><strong>Jogador:</strong> Buda</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjrasakin.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Ras Akin</h2>
+      <p><strong>Classe:</strong> Bardo</p>
+      <p><strong>Jogador:</strong> Weber</p>
+    </div>
+  </div>
+
+    <div class="pj-card">
+    <img src="pjrhaast.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Rhaast</h2>
+      <p><strong>Classe:</strong> Bardo</p>
+      <p><strong>Jogador:</strong> Vinicius</p>
+    </div>
+  </div>
+
+    <div class="pj-card">
+    <img src="pjschmied.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Schmied</h2>
+      <p><strong>Classe:</strong> Mago</p>
+      <p><strong>Jogador:</strong> Julio</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjtiktik.png" class="pj-img">
+    <div class="pj-info">
+      <h2>Tiktik</h2>
+      <p><strong>Classe:</strong> Bárbara</p>
+      <p><strong>Jogador:</strong> André</p>
+    </div>
+  </div>
+
+  <div class="pj-card">
+    <img src="pjvictor.jpg" class="pj-img">
+    <div class="pj-info">
+      <h2>Victor</h2>
+      <p><strong>Classe:</strong> Mago</p>
+      <p><strong>Jogador:</strong> Buda</p>
+    </div>
+  </div>
+
+  <!-- COPIE E COLE OUTROS AQUI -->
+  /section>
+
 
   <script>
     // Abre a aba correta ao clicar no card
