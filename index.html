@@ -170,6 +170,25 @@
       text-shadow: 1px 1px rgba(0,0,0,0.3);
     }
 
+  .onesh4721 {
+  background: linear-gradient(#3b2f13, #8b6f27);
+  color: white;
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  margin: 15px auto;
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+  .onesh4721:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+
 
    /* Container flex — organiza os blocos lado a lado */
 .onesh-container {
@@ -226,6 +245,26 @@
     }
 
     .btn:hover {
+      transform: scale(1.12);
+      animation: magicGlow 1.4s infinite;
+    }
+
+    /* BOTÃO de DATA*/
+    .onesh4721 {
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #8B4513, #ffef0a);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: bold;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      animation: slideUp 1.8s ease;
+    }
+
+    .onesh4721:hover {
       transform: scale(1.12);
       animation: magicGlow 1.4s infinite;
     }
@@ -549,7 +588,7 @@
   <section id="aventuras" class="aba">
     <h1>🔥 Aventuras Concluídas</h1>
     <h2>Desativação do Farol</h2>
-    <h3>Mestre ADM</h3>
+    <h3>Mestre Epitácio</h3>
     <br>
     <h2>Horizonte Partido</h2>
     <h3>Mestre Weber</h3>
@@ -558,7 +597,7 @@
     <h3>Mestre André</h3>
     <br>
     <h2>Saga de Kotal</h2>
-    <h3>Mestre ADM</h3>
+    <h3>Mestre Epitácio</h3>
     
   </section>
 
@@ -666,7 +705,7 @@ function fecharImagem() {
     <th>Sessões Narradas</th>
   </tr>
 
-  <tr><td>Mestre ADM</td><td class="Nível">ADM</td><td class="Sessões Narradas">––</td></tr>
+  <tr><td>Mestre Epitácio</td><td class="Nível">ADM</td><td class="Sessões Narradas">––</td></tr>
   <tr><td>André</td><td class="Nível">2</td><td class="Sessões Narradas">18</td></tr>
   <tr><td>Weber</td><td class="Nível">2</td><td class="Sessões Narradas">04</td></tr>
   <tr><td>Vinicius</td><td class="Nível">1</td><td class="Sessões Narradas">04</td></tr>
@@ -675,20 +714,20 @@ function fecharImagem() {
   </table>
   </section>
 
- <section id="oneshot" class="aba">
+<section id="oneshot" class="aba">
   <h1>☄️ One Shots</h1>
 
-  <!-- Container flex -->
-  <div class="onesh-container">
-    <div class="onesh" data-aba="centopeias">
-      <h2>Redução da População de Centopeias </h2>
-      <h4>(Rank D)</h4>
-    </div>
+  <!-- Botão -->
+  <div class="onesh4721" onclick="toggleContent('ano4721')">Ano 4721</div>
 
-    <div class="onesh" data-aba="perseguicaoidosa">
-      <h2>Perseguição de Idosa</h2>
-      <h4>(Rank D)</h4>
-    </div>
+  <!-- Conteúdo escondido -->
+  <div id="ano4721" class="content" style="display:none;">
+    <div class="onesh-container">
+      <!-- seus blocos aqui -->
+      <div class="onesh" data-aba="centopeias">
+        <h2>Redução da População de Centopeias</h2>
+        <h4>(Rank D)</h4>
+      </div>
 
     <div class="onesh" data-aba="furtoemexcesso">
       <h2>Furto em Excesso</h2>
@@ -755,9 +794,48 @@ function fecharImagem() {
       <h4>(Rank C)</h4>
     </div>
 
+    </div>
+  </div>
+
+  <script>
+function toggleContent(id) {
+  const el = document.getElementById(id);
+  if (el.style.display === 'none' || el.style.display === '') {
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+</script>
+
+  <!-- Segunda aba -->
+  <div class="onesh4721" onclick="toggleContent('timeskip')">Período de Time–Skip</div>
+  <div id="timeskip" class="content" style="display:none;">
+  
+    <div class="onesh" data-aba="ovidente">
+      <h2>O Vidente</h2>
+      <h4>(Rank D)</h4>
+    </div>
+
+    <div class="onesh" data-aba="rpg">
+      <h2>"RPG?"</h2>
+      <h4>(Rank D)</h4>
+    </div>
+
+    <div class="onesh" data-aba="adentrandoaopantano">
+      <h2>Adentrando Ao Pântano</h2>
+      <h4>(Rank D)</h4>
+    </div>
+
+    <div class="onesh" data-aba="vacuodepoder">
+      <h2>Vácuo de Poder</h2>
+      <h4>(Rank C)</h4>
+    </div>
+
   </div>
 </section>
 
+<div class="descrição oneshots 4721"
   <!-- ABA DA ONE-SHOT COMPLETA -->
   <section id="centopeias" class="aba">
   <h1>Redução da População de Centopeias</h1>
@@ -912,6 +990,50 @@ function fecharImagem() {
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
   Oseph Menhemes ordenou uma faxina na biblioteca, na guarnição e na praia de Otari, ao chegar na biblioteca viram que a sujeira era sinistra e perigosa, após uma sequência de faxina heroica eles venceram, Jaspe descobriu que essa sujeira havia espalhado uma praga por Otari e que um deus profano inimigo de Desna chamado Ghlaunder tinha influência nisso. Os desbravadores se organizaram e logo toda a praga havia sido eliminada. A guarnição de Otari já não precisava de limpezas graças aos esforços do Funcionário Competente, porém a praia ainda estava uma carniça. Gofo o Dragão Venerável sozinho com uma baforada de chamas devastadora, extirpou toda a podridão.
   </section>
+</div>
+
+<div class="descrição oneshots timeskip">
+  
+  <section id="ovidente" class="aba">
+  <h1>o Vidente</h1>
+  <h2>Algum dia de Abadius/4722</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Durotan, Jaspe e Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Os desbravadores são avisados de um bandido com dons de Vidência, eles usam de Adivinhação para identificar o local onde os bandidos foram, no caminho Bell achou o caminho onde os bandidos passaram, no caminho eles foram atacados por um Louva-deus gigante, com um golpe violento e impedindo o ataque na Bell, Durotan corta o inseto ao meio. Continuando o caminho eles viram uma casa onde os bandidos estavam morando, Jaspe ludibriou eles e o combate começou, o Vidente era perigoso e com treinamento militar e as habilidades de prever todos os movimentos ele derrubava 1 por 1, após muito sangue e suor Durotan em fúria deu um golpe brutal matando o Vidente. O Futuro é dos Desbravadores da Alvorada!!!
+  </p>
+
+  <section id="rpg" class="aba">
+  <h1>"RPG?"</h1>
+  <h2>Algum dia/4722</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Durotan, Gofo, Jaspe, Rhaast e Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Em uma de suas investigações com a guarnição de Otari, Fisti encontrou uma caixa misteriosa, ao abrir viu um jogo de tabuleiro chamado Sacramento Rpg. Ele chamou os desbravadores para jogar, e todos criaram seus personagens e tentaram salvar um trem. Durante a jogatina a caixa caminhava para a porta, Rhaast percebeu e foi ver, a caixa se revelou um mímico que, quando percebeu que estava numa guilda de aventureiros poderosos, ficou com medo e tentou fugir. Os desbravadores então destruíram o Mímico por completo.
+  <br>
+  PJs dos PJs que participaram:
+  Norabella, Laura, Diga, Cezar, Bruce Wayne e Sapo.
+  </p>
+
+  <section id="adentrandoaopantano" class="aba">
+  <h1>Adentrando ao Pântano</h1>
+  <h2>Algum dia/4722</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Durotan, Gofo, Jaspe, Mand, Pedro e Schmied</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Foram em uma dungeon que Lasti encontrou, lá enfrentaram uma aranha perigosa, gosmas e um Golem de Carne Zumbi.
+  </p>
+
+  <section id="vacuodepoder" class="aba">
+  <h1>Vácuo de Poder</h1>
+  <h2>Algum dia de Abadius/4722</h2>
+  <h3>Mestre Epitácio</h3>
+  <p>PJs: Durotan, Guerra, Jaspe, Lasti, Ras akin e Victor</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Após a desativação do Farol Macabro, o vácuo de poder deixou os habitantes dos charcos inquietos, então levantaram e avançaram em direção ao farol, consequentemente à cidade. Os heróis tentaram conter a ameaça, mas descobriram que os boggards estavam alimentando um gigante dos charcos, tornando o confronto perigoso demais. A missão fracassou, e o grupo foi forçado a recuar.
+  </p>
+
+</div>
 
   <section id="pjs" class="aba">
   <h1>🧙‍♂️ Personagens</h1>
@@ -1076,6 +1198,7 @@ function fecharImagem() {
       <p><strong>Jogador:</strong> Buda</p>
     </div>
   </div>
+  </section>
 
   <script>
     // Abre a aba correta ao clicar no card
