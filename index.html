@@ -6,7 +6,7 @@
   <title>Desbravadores da Alvorada</title>
 
   <!-- Fonte temática -->
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -17,7 +17,7 @@
       --white: #ffffff;
 
       /* Miniaturas */
-.galeria-grid {
+      .galeria-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
@@ -83,7 +83,7 @@
     }
 
     body {
-      font-family: "Crimson Text", serif;
+    font-family: 'Montserrat', sans-serif;
       background-size: cover;
       background-attachment: fixed;
       color: var(--text-dark);
@@ -143,12 +143,10 @@
       max-width: 1200px;
       margin: 0 auto 60px auto;
     }
-
     .cards a {
       text-decoration: none;
       color: inherit;
     }
-
     .card {
       background-size: cover;
       padding: 2rem;
@@ -161,18 +159,56 @@
       animation: slideUp 1.6s ease;
       cursor: pointer;
     }
-
     .card:hover {
       transform: translateY(-10px) scale(1.05);
       animation: magicGlow 1.5s infinite;
     }
-
     .card h2 {
       font-size: 1.5rem;
       margin-bottom: 10px;
       color: var(--primary);
       text-shadow: 1px 1px rgba(0,0,0,0.3);
     }
+
+
+   /* Container flex — organiza os blocos lado a lado */
+.onesh-container {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+/* Cada bloco individual */
+.onesh {
+  background-size: cover;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  border: 2px solid rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  animation: slideUp 1.6s ease;
+  cursor: pointer;
+}
+
+/* Efeito hover */
+.onesh:hover {
+  transform: translateY(-10px) scale(1.05);
+  animation: magicGlow 1.5s infinite;
+}
+
+/* Título */
+.onesh h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+  text-shadow: 1px 1px rgba(0,0,0,0.3);
+}
 
     /* BOTÃO */
     .btn {
@@ -182,7 +218,7 @@
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       font-weight: bold;
       transition: 0.25s ease;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -350,7 +386,7 @@
     body {
         background: #1a1a1a;
         color: white;
-        font-family: "Georgia", serif;
+       font-family: 'Montserrat', sans-serif;
         text-align: center;
         padding: 20px;
     }
@@ -608,9 +644,6 @@ function fecharImagem() {
 }
 </script>
 
-  
-  
-
   <!-- Modal de imagem -->
   <div id="modal-img" class="modal" onclick="this.style.display='none'">
     <img id="modal-conteudo">
@@ -642,45 +675,88 @@ function fecharImagem() {
   </table>
   </section>
 
-  <section id="oneshot" class="aba">
+ <section id="oneshot" class="aba">
   <h1>☄️ One Shots</h1>
-    <div class="card" data-aba="centopeias">
-      <h2>Redução da População de Centopeias <h4>(Rank D)</h4></h2>
+
+  <!-- Container flex -->
+  <div class="onesh-container">
+    <div class="onesh" data-aba="centopeias">
+      <h2>Redução da População de Centopeias </h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="perseguicaoidosa">
-      <h2>Perseguição de Idosa <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="perseguicaoidosa">
+      <h2>Perseguição de Idosa</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="furtoemexcesso">
-      <h2>Furto em Excesso <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="furtoemexcesso">
+      <h2>Furto em Excesso</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="controledeferas">
-      <h2>Controle de Feras <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="controledeferas">
+      <h2>Controle de Feras </h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="glandulasdelagartoschocantes">
-      <h2>Glândulas de Lagartos Chocantes <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="glandulasdelagartoschocantes">
+      <h2>Glândulas de Lagartos Chocantes</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="sumiçosenhoritas">
-      <h2>O Sumiço das Senhoritas Paps, Peps, Pips e Pops <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="sumiçosenhoritas">
+      <h2>O Sumiço das Senhoritas Paps, Peps, Pips e Pops</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="pontoazul">
-      <h2>O que é um Ponto Azul numa Floresta? <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="pontoazul">
+      <h2>O que é um Ponto Azul numa Floresta?</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="paladinoimovel">
-      <h2>O Paladino Imóvel <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="paladinoimovel">
+      <h2>O Paladino Imóvel</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="pessimopescado">
-      <h2>Péssimo Pescado <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="pessimopescado">
+      <h2>Péssimo Pescado</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="somelliertrap">
-      <h2>Somellier de Armadilhas <h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="somelliertrap">
+      <h2>Somellier de Armadilhas</h2>
+      <h4>(Rank D)</h4>
     </div>
-    <div class="card" data-aba="infestblue">
-      <h2>Infestação Azul <h4>(Rank C)</h4></h2>
+
+    <div class="onesh" data-aba="infestblue">
+      <h2>Infestação Azul</h2>
+      <h4>(Rank C)</h4>
     </div>
-    <div class="card" data-aba="matemobichopapao">
-      <h2>Matem o Bicho Papão<h4>(Rank D)</h4></h2>
+
+    <div class="onesh" data-aba="limpezanabiblioteca">
+      <h2>Limpeza na Biblioteca</h2>
+      <h4>(Rank D)</h4>
     </div>
-  </section>
+
+    <div class="onesh" data-aba="resgateemotari">
+      <h2>Resgate em Otari</h2>
+      <h4>(Rank D)</h4>
+    </div>
+
+    <div class="onesh" data-aba="trabalhosujo">
+      <h2>Trabalho Sujo</h2>
+      <h4>(Rank D)</h4>
+    </div>
+
+    <div class="onesh" data-aba="faxinabrutal">
+      <h2>A Faxina Brutal!!!</h2>
+      <h4>(Rank C)</h4>
+    </div>
+
+  </div>
+</section>
 
   <!-- ABA DA ONE-SHOT COMPLETA -->
   <section id="centopeias" class="aba">
@@ -801,35 +877,40 @@ function fecharImagem() {
   Os desbravadores se preparam comprando águas bentas em Otari e logo partem onde antes haviam enfrentado os Zumbis do Vazio, no caminho se encontraram com Holos um druida leshy que estava investigando os Akatas ja tinha um tempo, o grupo então munido de diversos recursos entram na cavarna onde estavam os Akatas. Ao chegar lá viram diversos Akatas encasulados em um cristal estranho, apenas um estava fora, o combate se inicia e logo Guerra atira uma flecha que tira a vida da criatura, logo após isso previendo que as criaturas logo sairiam dos casulos Chacal diz a todos que devem se preparar, o bruxo invoca um morto vivo e começa a consumir a mente das criaturas ainda encasuladas, Holos domina o local com suas vinhas, Jaspe se prepara com suas lanças de luz e seu escudo e Guerra assume uma posição de vantagem enquanto marca um dos inimigos. Alguns Akatas saem dos casulos e vao em direção de Jaspe que acaba de parasite-las, no ar druida domina os movimentos das criaturas, e a de cima o goblin mataava os azarados que estavam na linha de tiro. O combate continuou onde se tornou o pesadelo das aberraçẽos, Jaspe era um alvo imortal que dominava as aberrações e os Akatas para Sareinhe, Holos enterrava as criaturas com sua magalda(A fraqueza delas) e Guerra tirava o descaço em zentoa no centro dos combates, ainda houvera um Akata contra um Zumbi(de longe o melhor dos combates), ambos demonstrando uma ferocidade surreal, com mordidas e agarrões fatais. A luta contra os Akatas acaba com a vitoria dos Desbravadores da Alvorada.  </p>
   </section>
 
-  <section id="matemobichopapao" class="aba">
-  <h1>Matem o Bicho Papão</h1>
-  <h2>06/12/4721</h2>
-  <h3>Mestre André</h3>
-  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <section id="limpezanabiblioteca" class="aba">
+  <h1>Limpeza na Biblioteca</h1>
+  <h2>20/12/4721</h2>
+  <h3>Mestre Weber</h3>
+  <p>PJs: Bellanora, Chacal, Durotan, Fisti, Jaspe e Schmied</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
-  O grupo chega na mansão e começa a investigar, olhando na cozinha Sapp encontra uma bebida alcoólica estranha com gosto de cereja, Bellanora encontra um colar de dentes de humanoides, depois na sala de estar eles encontram garrafas de vinho envenenadas e um livro com vários símbolos estranhos, é identificado os símbolos de Lamashtu, Zon-Kuthon e do grupo Os Sinistros, um grupo que leva a tortura física e psicológica como um estilo de vida. Riacho logo identifica marcas do lado de fora da casa e suspeita que o bixo papão esteja no sótão. O grupo então vai lá e encontra morcegos vampiros que atacam todos, mas logo Jaspe e Riacho com ataques de lanças e mordidas de crocodilo, acabam com todo o perigo. Nesse momento metade do grupo ia saindo do sótão, Sapp quis ficar para ver de onde saíram os morcegos e nesse momento quebrando a janela, um Bugbear de jaqueta de couro com o símbolo dos Sinistros e um baita machado em mãos chega gritando e ataca Sapp, que graças a seu escudo ele sobrevive vivo, o grupo então se reune no sótão e começa a atacar o bugbear, este busca trucidar Bellanora que estava com seu colar de dentes, ela arremessa o colar para a janela, o Bugbear perde a atenção nesse momento e Jaspe aproveita para perfurar criticamente o peito do Bugbear, Sapp usa de magias para tirar a vitalidade do Bugbear e Abissal(o crocodilo do Riacho) morde os pés dele, a luta se encerra com um golpe certeiro de lança no pescoço do bugbear, que ameaçava tornar-se um perigo iminente. A sessão se encerra com a casa salva de perigos.
+  A biblioteca foi o ponto de encontro para sobreviventes duranto o ataque do farol, porém, as coisas saíram de controle quando GHOULS direto do cemitério de Otari foram para lá. Os aventureiros foram ao local e exterminaram os ghouls, salvando a população e tornando o ponto de encontro e refúgio seguro novamente.
   </section>
 
-  <section id="matemobichopapao" class="aba">
-  <h1>Matem o Bicho Papão</h1>
-  <h2>07/12/4721</h2>
-  <h3>Mestre André</h3>
-  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <section id="resgateemotari" class="aba">
+  <h1>Resgate em Otari</h1>
+  <h2>20/12/4721</h2>
+  <h3>Mestre Vinicius</h3>
+  <p>PJs: Bellanora, DUrotan, Fisti, Jaspe e Sapp Robert</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
-  A Aventura deu início com eles planejando uma forma de vencer o Zumbi Bruto e o Necrofídio (Uma grande serpente de ossos), Jaspe foi pra frente enquanto Arauto das Arapucas instalava uma armadilha no caminho do Necrofídio. Jaspe iniciou o combate atacando o Zumbi com uma magia que o chicoteava com um impulso de vitalidade, Bell empunhou sua lança e a encantou com magia, Riacho e Abissal avançam e atacam sincronizadamente, Sapp usa de magia para tornar Abissal em uma ameaça contra qualquer morto vivo, emanando vitalidade de suas presas.
-  O Zumbi atacou com brutalidade Jaspe mas com o escudo bem posicionado ela mitigou boa parte do dano, o Necrofídio desviava perfeitamente da armadilha e começava uma dança macabra para atordoar o grupo, o combate continuou até que como um terrível predador, Abissal mordeu a perna do Zumbi o levando ao chão e afastando toda treva que comandava essa pobre criatura, o Necrofídio atava Bellanora que sofria com as mordidas fatais da Serpente de Ossos, do outro lado do campo de batalha Sapp utilizava lanças espirituais no Necrofídio, nos movimentos dela evitava a maior parte dos golpes. Até que a lança de Sapp finalmente destrói a criatura. Enquanto Jaspe curava e Robertinho (O encosto de Sapp) atormentava a mente de Bell, Riacho viu uma rapieira que chamava sua atenção, ao encostar na rapieira todo grupo é puxado para uma visão.
-  Um goblin poderoso chamado Tempo havia amaldiçoado um Bhargest no passado que tinha atacado Olymgard, e todos os corpos das vítimas que fazia emanava visões que ajudavam heróis a vencê-lo. Então os pjs são puxados para visões, uma delas de um grupo de aventureiros enfrentando um colossal gigante, uma outra visão de prisioneiros que foram torturados por um bruxo tentando fugir ou se vingar do tal bruxo devoto de Zon Kuthon, por fim a visão é de um Bhargest invadindo Olymgard e sendo impedido pelos goblins. A visão termina, possíveis informações úteis para os desbravadores lidarem com os problemas que virão.
+  Após a limpeza de dentro da biblioteca houve comoção de mais mortos vivos do lado de fora, Vandy cuidou dos feridos e então cuidou da biblioteca, os aventureiros seguiram por Otari resgatando civis dentro de suas casas, comércios em chamas, escombros e lutando contra criaturas pelo caminho. Os aventureiros obtiveram um total de 26 vítimas salvas, após um confronto com o minotauro Sapp caminhou pra um destino onde não foi mais visto aquele dia...
   </section>
 
-  <section id="matemobichopapao" class="aba">
-  <h1>Matem o Bicho Papão</h1>
-  <h2>07/12/4721</h2>
-  <h3>Mestre André</h3>
-  <p>PJs: Bellanora, Jaspe, Riacho, Sapp</p>
+  <section id="trabalhosujo" class="aba">
+  <h1>Trabalho Sujo</h1>
+  <h2>21/12/4721</h2>
+  <h3>Mestre Ariel</h3>
+  <p>PJs: Durotan, Fisti, Gofo, Jaspe e Pedro</p>
   <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
-  A Aventura deu início com eles planejando uma forma de vencer o Zumbi Bruto e o Necrofídio (Uma grande serpente de ossos), Jaspe foi pra frente enquanto Arauto das Arapucas instalava uma armadilha no caminho do Necrofídio. Jaspe iniciou o combate atacando o Zumbi com uma magia que o chicoteava com um impulso de vitalidade, Bell empunhou sua lança e a encantou com magia, Riacho e Abissal avançam e atacam sincronizadamente, Sapp usa de magia para tornar Abissal em uma ameaça contra qualquer morto vivo, emanando vitalidade de suas presas.
-  O Zumbi atacou com brutalidade Jaspe mas com o escudo bem posicionado ela mitigou boa parte do dano, o Necrofídio desviava perfeitamente da armadilha e começava uma dança macabra para atordoar o grupo, o combate continuou até que como um terrível predador, Abissal mordeu a perna do Zumbi o levando ao chão e afastando toda treva que comandava essa pobre criatura, o Necrofídio atava Bellanora que sofria com as mordidas fatais da Serpente de Ossos, do outro lado do campo de batalha Sapp utilizava lanças espirituais no Necrofídio, nos movimentos dela evitava a maior parte dos golpes. Até que a lança de Sapp finalmente destrói a criatura. Enquanto Jaspe curava e Robertinho (O encosto de Sapp) atormentava a mente de Bell, Riacho viu uma rapieira que chamava sua atenção, ao encostar na rapieira todo grupo é puxado para uma visão.
-  Um goblin poderoso chamado Tempo havia amaldiçoado um Bhargest no passado que tinha atacado Olymgard, e todos os corpos das vítimas que fazia emanava visões que ajudavam heróis a vencê-lo. Então os pjs são puxados para visões, uma delas de um grupo de aventureiros enfrentando um colossal gigante, uma outra visão de prisioneiros que foram torturados por um bruxo tentando fugir ou se vingar do tal bruxo devoto de Zon Kuthon, por fim a visão é de um Bhargest invadindo Olymgard e sendo impedido pelos goblins. A visão termina, possíveis informações úteis para os desbravadores lidarem com os problemas que virão.
+  Caçarola pediu para investigarem as tavernas que foram inundadas de areia na noite anterior, ao investigar o Pescado Brigão encontraram um mephit de areia escondido nas areias. Partindo para o cascos de corvo retiraram informação de um bêbado que havia tomado uma mistura de Mageloy que fazia uma embriaguez potencializada. Suspeitando se tratar do anão falecido Zivot eles vão até o refúgio do gatuno e ajudam em uma dificil limpeza para conseguir informações da funcionária e descobrem que o dono do quarto lugar invadido estava presente nos outros três na noite passada. Indo para o quarto lugar, casa do Senhor Sand Junior, eles descobrem que Junior e seu filho, Sand Neto, queriam espaço para alavancar uma carreira como cozinheiros em otari. Por meio de um contrato demoníaco encontrado na casa foi deduzido que Junior havia feito um pacto com algum infero na noite passada para conseguir sabotar as outras cozinhas. Por meio de um mapa descobriram que a guilda também seria atacada. Chegando lá derrotaram mais três mephits e Sand Junior, impedindo seus planos quase malignos.
+  </section>
+
+  <section id="faxinabrutal" class="aba">
+  <h1>A Faxina Brutal!!!</h1>
+  <h2>22/12/4721</h2>
+  <h3>Mestre André</h3>
+  <p>PJs: Bellanora, Durotan, Gofo, Jaspe e Rhaast</p>
+  <p style="margin-top: 25px; font-size: 1.6rem; line-height: 2.2rem;">
+  Oseph Menhemes ordenou uma faxina na biblioteca, na guarnição e na praia de Otari, ao chegar na biblioteca viram que a sujeira era sinistra e perigosa, após uma sequência de faxina heroica eles venceram, Jaspe descobriu que essa sujeira havia espalhado uma praga por Otari e que um deus profano inimigo de Desna chamado Ghlaunder tinha influência nisso. Os desbravadores se organizaram e logo toda a praga havia sido eliminada. A guarnição de Otari já não precisava de limpezas graças aos esforços do Funcionário Competente, porém a praia ainda estava uma carniça. Gofo o Dragão Venerável sozinho com uma baforada de chamas devastadora, extirpou toda a podridão.
   </section>
 
   <section id="pjs" class="aba">
