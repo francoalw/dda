@@ -482,6 +482,24 @@
 </style>
 
 </head>
+
+<script>
+document.querySelectorAll('.onesh').forEach(item => {
+  item.addEventListener('click', () => {
+    const aba = item.getAttribute('data-aba');
+
+    // esconde todas as abas
+    document.querySelectorAll('.aba').forEach(a => {
+      a.style.display = 'none';
+    });
+
+    // mostra a aba correspondente
+    const alvo = document.getElementById(aba);
+    if (alvo) alvo.style.display = 'block';
+  });
+});
+</script>
+
 <body>
 
 <!-- BOTÃO C -->
@@ -519,6 +537,38 @@
     transition: 0.2s;
   }
 
+  .pos.onelugar {
+  color: #3cff00;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  }
+
+  .pos.top {
+  color: #e7cb2b;
+  font-weight: bold;
+  }
+
+  .pos.topmid {
+  color: #FFD700;
+  font-weight: bold;
+  }
+  
+  .pos.mid {
+  color: #ffe555;
+  font-weight: bold;
+  }
+
+  .pos.midlow {
+  color: #fff09d;
+  font-weight: bold;
+  }
+
+  .pos.low {
+  color: #fdf0a3;
+  font-weight: bold;
+  }
+
   .nivel {
     color: #00ffea;
     font-weight: bold;
@@ -532,22 +582,24 @@
 
 <table class="tabela-epica">
   <tr>
+    <th> </th>
     <th>Nome</th>
     <th>Nível</th>
     <th>XP</th>
   </tr>
 
-   <tr><td>🥇Lasti o Vermelho</td><td class="nivel">6</td><td class="xp">680</td></tr>
-  <tr><td>🥈Victor</td><td class="nivel">6</td><td class="xp">651</td></tr>
-  <tr><td>🥉Ras Akin</td><td class="nivel">6</td><td class="xp">521</td></tr>
-  <tr><td>Gauboudor</td><td class="nivel">5</td><td class="xp">977</td></tr>
-  <tr><td>Holos</td><td class="nivel">5</td><td class="xp">970</td></tr>
-  <tr><td>Gras</td><td class="nivel">5</td><td class="xp">837</td></tr>
-  <tr><td>Guerra</td><td class="nivel">5</td><td class="xp">709</td></tr>
-  <tr><td>Jaspe</td><td class="nivel">5</td><td class="xp">525</td></tr>
-  <tr><td>Durotan</td><td class="nivel">4</td><td class="xp">548</td></tr>
-  <tr><td>Bellanora</td><td class="nivel">4</td><td class="xp">589</td></tr>
-  <tr><td>Fisti o Azul</td><td class="nivel">4</td><td class="xp">257</td></tr>
+  <tr><td class="pos onelugar">01</td><td>Victor</td><td class="nivel">6</td><td class="xp">801</td></tr>
+  <tr><td class="pos top">02</td><td>Lasti o Vermelho</td><td class="nivel">6</td><td class="xp">680</td></tr>
+  <tr><td class="pos top">03</td><td>Ras Akin</td><td class="nivel">6</td><td class="xp">671</td></tr>
+  <tr><td class="pos topmid">04</td><td>Garboudor</td><td class="nivel">6</td><td class="xp">127</td></tr>
+  <tr><td class="pos topmid">05</td><td>Holos</td><td class="nivel">5</td><td class="xp">970</td></tr>
+  <tr><td class="pos mid">06</td><td>Gras</td><td class="nivel">5</td><td class="xp">837</td></tr>
+  <tr><td class="pos mid">07</td><td>Guerra</td><td class="nivel">5</td><td class="xp">709</td></tr>
+  <tr><td class="pos mid">08</td><td>Jaspe</td><td class="nivel">5</td><td class="xp">675</td></tr>
+  <tr><td class="pos mid">09</td><td>Chacal</td><td class="nivel">5</td><td class="xp">400</td></tr>
+  <tr><td class="pos midlow">10</td><td>Bellanora</td><td class="nivel">4</td><td class="xp">739</td></tr>
+  <tr><td class="pos midlow">11</td><td>Durotan</td><td class="nivel">4</td><td class="xp">698</td></tr>
+  <tr><td class="pos low">12</td><td>Fisti o Azul</td><td class="nivel">4</td><td class="xp">437</td></tr>
   </table>
 
   </div>
@@ -557,18 +609,19 @@
   <div id="rankD" class="content">
   <table class="tabela-epica">
   <tr>
+    <th> </th>
     <th>Nome</th>
     <th>Nível</th>
     <th>XP</th>
   </tr>
 
-  <tr><td>🥇Schmied</td><td class="nivel">3</td><td class="xp">005</td></tr>
-  <tr><td>🥈Gofo</td><td class="nivel">2</td><td class="xp">726</td></tr>
-  <tr><td>🥉Tiktik</td><td class="nivel">2</td><td class="xp">690</td></tr>
-  <tr><td>Riacho</td><td class="nivel">2</td><td class="xp">372</td></tr>
-  <tr><td>Rhaast</td><td class="nivel">2</td><td class="xp">319</td></tr>
-  <tr><td>Pedro</td><td class="nivel">1</td><td class="xp">960</td></tr>
-  <tr><td>Mand</td><td class="nivel">1</td><td class="xp">520</td></tr>
+  <tr><td class="pos onelugar">01</td><td>Schmied</td><td class="nivel">3</td><td class="xp">005</td></tr>
+  <tr><td class="pos top">02</td><td>Gofo</td><td class="nivel">2</td><td class="xp">726</td></tr>
+  <tr><td class="pos top">03</td><td>Tiktik</td><td class="nivel">2</td><td class="xp">690</td></tr>
+  <tr><td class="pos topmid">04</td><td>Riacho</td><td class="nivel">2</td><td class="xp">372</td></tr>
+  <tr><td class="pos mid">05</td><td>Rhaast</td><td class="nivel">2</td><td class="xp">319</td></tr>
+  <tr><td class="pos midlow">06</td><td>Pedro</td><td class="nivel">1</td><td class="xp">960</td></tr>
+  <tr><td class="pos low">07</td><td>Mand</td><td class="nivel">1</td><td class="xp">520</td></tr>
   </table>
 
   </div>
@@ -706,7 +759,7 @@ function fecharImagem() {
   </tr>
 
   <tr><td>Mestre Epitácio</td><td class="Nível">ADM</td><td class="Sessões Narradas">––</td></tr>
-  <tr><td>André</td><td class="Nível">2</td><td class="Sessões Narradas">18</td></tr>
+  <tr><td>André</td><td class="Nível">2</td><td class="Sessões Narradas">19</td></tr>
   <tr><td>Weber</td><td class="Nível">2</td><td class="Sessões Narradas">04</td></tr>
   <tr><td>Vinicius</td><td class="Nível">1</td><td class="Sessões Narradas">04</td></tr>
   <tr><td>Ariel</td><td class="Nível">1</td><td class="Sessões Narradas">03</td></tr>
@@ -1076,7 +1129,7 @@ function toggleContent(id) {
   <div class="pj-card">
     <img src="pjgauboudor.jpg" class="pj-img">
     <div class="pj-info">
-      <h2>Gauboudor</h2>
+      <h2>Garboudor</h2>
       <p><strong>Classe:</strong> Alquimista</p>
       <p><strong>Jogador:</strong> Vinicius</p>
     </div>
@@ -1219,17 +1272,7 @@ function toggleContent(id) {
         document.getElementById(alvo).scrollIntoView({ behavior: "smooth" });
       });
     });
-
-    // Botão troll
-    const botao = document.getElementById("botao");
-    botao.addEventListener("click", () => {
-      botao.style.background =
-        botao.style.background === "green"
-          ? "linear-gradient(135deg, #8B4513, #C69C72)"
-          : "green";
-    });
   </script>
 
 </body>
 </html>
-
